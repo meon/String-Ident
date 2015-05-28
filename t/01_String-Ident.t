@@ -5,7 +5,7 @@ use warnings;
 use 5.010;
 use utf8;
 
-use KB::Stats::Test;
+use Test::More;
 
 use_ok('String::Ident') or die;
 

@@ -8,7 +8,7 @@ my $build = Module::Build->new(
         'Text::Unidecode' => 0,
     },
     build_requires => {
-        'Test::Most' => 0,
+        'Test::More' => '0.88',
     },
     configure_requires  => { 'Module::Build' => '0.38' },
     dist_author         => 'Jozef Kutej <jkutej@cpan.org>',
