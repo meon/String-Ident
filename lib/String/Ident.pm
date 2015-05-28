@@ -41,7 +41,7 @@ String::Ident - clean-up string to be used as identifier and in URLs
 
 =head1 DESCRIPTION
 
-Processes
+clean-up string to be used as identifier and in URLs
 
 =head1 METHODS
 
@@ -67,6 +67,24 @@ Processes
 
 =head1 AUTHOR
 
-Jozef Kutej
+Jozef Kutej, C<< <jkutej at cpan.org> >>
+
+=head1 CONTRIBUTORS
+ 
+The following people have contributed to the File::is by committing their
+code, sending patches, reporting bugs, asking questions, suggesting useful
+advises, nitpicking, chatting on IRC or commenting on my blog (in no particular
+order):
+
+    Andrea Pavlovic
+
+=head1 LICENSE AND COPYRIGHT
+
+This program is free software; you can redistribute it and/or modify it
+under the terms of either: the GNU General Public License as published
+by the Free Software Foundation; or the Artistic License.
+
+See http://dev.perl.org/licenses/ for more information.
 
 =cut
+
