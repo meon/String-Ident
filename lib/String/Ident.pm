@@ -30,6 +30,8 @@ sub cleanup {
 
 __END__
 
+=encoding utf8
+
 =head1 NAME
 
 String::Ident - clean-up string to be used as identifier and in URLs
