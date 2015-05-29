@@ -4,7 +4,7 @@ use warnings;
 use strict;
 use utf8;
 
-our $VERSION = 0.01;
+our $VERSION = 0.02;
 
 use Text::Unidecode 'unidecode';
 
@@ -79,6 +79,12 @@ advises, nitpicking, chatting on IRC or commenting on my blog (in no particular
 order):
 
     Andrea Pavlovic
+    Syohei YOSHIDA
+
+=head1 THANKS
+
+Thanks to L<VÖV - Verband Österreichischer Volkshochschulen|http://www.vhs.or.at/>
+for sponsoring development of this module.
 
 =head1 LICENSE AND COPYRIGHT
 

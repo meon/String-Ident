@@ -1,2 +1,6 @@
+0.02 Thu 29 May 19:31:24 CEST 2015
+    - fix encoding for pod (thanks Syohei YOSHIDA)
+    - s/Test::Most/Test::More/ (thanks Syohei YOSHIDA)
+
 0.01 Thu 28 May 09:19:08 CEST 2015
     - initial release
