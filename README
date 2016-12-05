@@ -10,6 +10,9 @@ DESCRIPTION
 
 METHODS
   cleanup()
+    "cleanup" does the following things to convert your messy string into
+    something that you can use as an identifier:
+
         # replace unicode by ascii
         $text = unidecode($text);
 
@@ -28,8 +31,17 @@ METHODS
 
         # min length is set to 4 filled in by random letters
 
+    "cleanup" per default truncates the text to 30 chars. You can pass in
+    some other limit, or -1 to not truncate:
+
+      cleanup("some very long töxt Lorem ipsum dolor sit amet, consectetur adipiscing elit, ", 15);
+      # 'some-very-long-toxt-'
+
+      cleanup("some very long töxt Lorem ipsum dolor sit amet, consectetur adipiscing elit, ", -1);
+      # 'some-very-long-toxt-Lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit'
+
 AUTHOR
-    Jozef Kutej, `<jkutej at cpan.org>'
+    Jozef Kutej, "<jkutej at cpan.org>"
 
 CONTRIBUTORS
     The following people have contributed to the File::is by committing
@@ -37,12 +49,15 @@ CONTRIBUTORS
     suggesting useful advises, nitpicking, chatting on IRC or commenting on
     my blog (in no particular order):
 
-        Andrea Pavlovic
-        Syohei YOSHIDA
+    *   Andrea Pavlovic
+
+    *   Syohei YOSHIDA
+
+    *   Thomas Klausner, "<domm@plix.at>"
 
 THANKS
-    Thanks to VÖV - Verband Österreichischer Volkshochschulen for
-    sponsoring development of this module.
+    Thanks to VÖV - Verband Österreichischer Volkshochschulen
+    <http://www.vhs.or.at/> for sponsoring development of this module.
 
 LICENSE AND COPYRIGHT
     This program is free software; you can redistribute it and/or modify it

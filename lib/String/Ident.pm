@@ -9,7 +9,7 @@ our $VERSION = 0.02;
 use Text::Unidecode 'unidecode';
 
 sub cleanup {
-    my ($self, $text) = @_;
+    my ($self, $text, $maxlength) = @_;
 
     $text = '' unless defined($text);
     $text = unidecode($text);
@@ -17,7 +17,11 @@ sub cleanup {
     $text =~ s/--+/-/g;
     $text =~ s/-$//g;
     $text =~ s/^-//g;
-    $text = substr($text,0,30);
+
+    if (!$maxlength || $maxlength > 0) {
+        $maxlength ||= 30;
+        $text = substr($text,0,$maxlength);
+    }
     while (length($text) < 4) {
         $text .= chr(ord('a') + rand(ord('z') - ord('a') + 1));
     }
@@ -49,6 +53,8 @@ clean-up string to be used as identifier and in URLs
 
 =head2 cleanup()
 
+C<cleanup> does the following things to convert your messy string into something that you can use as an identifier:
+
     # replace unicode by ascii
     $text = unidecode($text);
 
@@ -67,6 +73,14 @@ clean-up string to be used as identifier and in URLs
 
     # min length is set to 4 filled in by random letters
 
+C<cleanup> per default truncates the text to 30 chars. You can pass in some other limit, or C<-1> to not truncate:
+
+  cleanup("some very long töxt Lorem ipsum dolor sit amet, consectetur adipiscing elit, ", 15);
+  # 'some-very-long-toxt-'
+
+  cleanup("some very long töxt Lorem ipsum dolor sit amet, consectetur adipiscing elit, ", -1);
+  # 'some-very-long-toxt-Lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit'
+
 =head1 AUTHOR
 
 Jozef Kutej, C<< <jkutej at cpan.org> >>
@@ -78,8 +92,15 @@ code, sending patches, reporting bugs, asking questions, suggesting useful
 advises, nitpicking, chatting on IRC or commenting on my blog (in no particular
 order):
 
-    Andrea Pavlovic
-    Syohei YOSHIDA
+=over
+
+=item * Andrea Pavlovic
+
+=item * Syohei YOSHIDA
+
+=item * Thomas Klausner, C<< <domm@plix.at> >>
+
+=back
 
 =head1 THANKS
 
