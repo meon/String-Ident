@@ -46,6 +46,11 @@ subtest 'OO usage' => sub {
     is( length( $s_ident->cleanup('ABC') ), 5, 'custom min length 5' );
     is( length( $s_ident->cleanup( 'x' x 100 ) ),
         10, 'custom max length 10' );
+
+    my $s_ident2 = String::Ident->new( min_len => -1, max_len => -1 );
+    is( length( $s_ident2->cleanup('') ), 0, 'custom min length -1' );
+    is( length( $s_ident2->cleanup( 'x' x 100 ) ),
+        100, 'custom max length -1' );
 };
 
 done_testing();

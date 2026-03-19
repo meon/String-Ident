@@ -70,10 +70,10 @@ AUTHOR
     Jozef Kutej, "<jkutej at cpan.org>"
 
 CONTRIBUTORS
-    The following people have contributed to String::Ident by committing
-    code, sending patches, reporting bugs, asking questions, suggesting
-    useful advice, nitpicking, chatting on IRC, or commenting on my blog (in
-    no particular order):
+    The following people have contributed to the String::Ident by committing
+    their code, sending patches, reporting bugs, asking questions,
+    suggesting useful advises, nitpicking, chatting on IRC or commenting on
+    my blog (in no particular order):
 
     *   Andrea Pavlovic
 

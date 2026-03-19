@@ -4,13 +4,13 @@ use warnings;
 use strict;
 use utf8;
 
-our $VERSION = 0.04;
+our $VERSION = 0.05;
 
 use Text::Unidecode 'unidecode';
 use Scalar::Util 'blessed';
 
 sub new {
-    my ($class, %args) = @_;
+    my ( $class, %args ) = @_;
     return bless {
         min_len => $args{min_len},
         max_len => $args{max_len},
@@ -18,26 +18,27 @@ sub new {
 }
 
 sub min_len {
-    my ($self, $new) = @_;
+    my ( $self, $new ) = @_;
     $self->{min_len} = $new if @_ > 1;
     $self->{min_len} = 4
-        unless defined($self->{min_len});
+        unless defined( $self->{min_len} );
     return $self->{min_len};
 }
 
 sub max_len {
-    my ($self, $new) = @_;
+    my ( $self, $new ) = @_;
     $self->{max_len} = $new if @_ > 1;
     $self->{max_len} = 30
-        unless defined($self->{max_len});
+        unless defined( $self->{max_len} );
     return $self->{max_len};
 }
 
 sub cleanup {
-    my ($self, $text, $max_len) = @_;
+    my ( $self, $text, $max_len ) = @_;
 
-    $self = $self->new(max_len => $max_len)
+    $self = $self->new( max_len => $max_len )
         unless blessed($self);
+    $max_len = ( defined($max_len) ? $max_len : $self->max_len );
 
     $text = '' unless defined($text);
     $text = unidecode($text);
@@ -46,19 +47,17 @@ sub cleanup {
     $text =~ s/-$//g;
     $text =~ s/^-//g;
 
-    if (!$max_len || $max_len > 0) {
-        $max_len ||= $self->max_len;
-        $text = substr($text,0,$max_len);
+    if ( $max_len > 0 ) {
+        $text = substr( $text, 0, $max_len );
     }
-    while (length($text) < $self->min_len) {
-        $text .= chr(ord('a') + rand(ord('z') - ord('a') + 1));
+    while ( length($text) < $self->min_len ) {
+        $text .= chr( ord('a') + rand( ord('z') - ord('a') + 1 ) );
     }
 
     return $text;
 }
 
 1;
-
 
 __END__
 
