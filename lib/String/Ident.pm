@@ -4,7 +4,7 @@ use warnings;
 use strict;
 use utf8;
 
-our $VERSION = 0.03;
+our $VERSION = 0.04;
 
 use Text::Unidecode 'unidecode';
 use Scalar::Util 'blessed';
@@ -148,9 +148,9 @@ Jozef Kutej, C<< <jkutej at cpan.org> >>
 
 =head1 CONTRIBUTORS
  
-The following people have contributed to String::Ident by committing code,
-sending patches, reporting bugs, asking questions, suggesting useful advice,
-nitpicking, chatting on IRC, or commenting on my blog (in no particular
+The following people have contributed to the String::Ident by committing their
+code, sending patches, reporting bugs, asking questions, suggesting useful
+advises, nitpicking, chatting on IRC or commenting on my blog (in no particular
 order):
 
 =over
